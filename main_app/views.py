@@ -3,7 +3,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from .models import Blog
 # Create your views here.
@@ -29,7 +29,7 @@ class BlogCreate(CreateView):
     template_name = "blog_create.html"
 
     def get_success_url(self):
-                return reverse('blog_detail', kwargs={'pk':self.object.pk})
+                return reverse('home')
 
 #  Update post blog
 class BlogUpdate(UpdateView):
@@ -39,3 +39,8 @@ class BlogUpdate(UpdateView):
 
     def get_success_url(self):
                 return reverse('blog_detail', kwargs={'pk':self.object.pk})
+
+#  Delete post blog
+class BlogDelete(DeleteView):
+    model = Blog
+    template_name = "blog_delete.html"
