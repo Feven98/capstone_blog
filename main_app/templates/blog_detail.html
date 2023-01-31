@@ -6,7 +6,8 @@
 {{ blog.content}}
 </br>
 <div class="buttons">
-<a href="{% url 'blog_update' blog.pk %}">Edit</a>
+<a href="{% url 'blog_update' blog.pk %}">Update</a>
+<a href="{% url 'blog_delete' blog.pk %}">Delete</a>
 </div>
 </br>
 <!-- <div class="detail__container">
