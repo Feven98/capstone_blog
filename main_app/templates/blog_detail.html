@@ -5,6 +5,24 @@
 <h2>By: {{blog.writer}}</h2>
 {{ blog.content}}
 </br>
+<div class="detail__songs mb-5">
+    <h3 class="title is-3">Comment</h3>
+
+    {% for comment in blog.comments.all %}
+    <div class="song">
+      <span>{{forloop.counter}}</span>
+      <span><b>{{comment.name}}</b></span>
+      <span>{{comment.content}}</span>
+    </div>
+		{% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No comment Available</p>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
 <div class="buttons">
 <a href="{% url 'blog_update' blog.pk %}">Update</a>
 <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
