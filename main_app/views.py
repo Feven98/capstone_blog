@@ -44,3 +44,6 @@ class BlogUpdate(UpdateView):
 class BlogDelete(DeleteView):
     model = Blog
     template_name = "blog_delete.html"
+   
+    def get_success_url(self):
+                return reverse('home')
