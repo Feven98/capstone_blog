@@ -5,5 +5,15 @@
 <h2>By: {{blog.writer}}</h2>
 {{ blog.content}}
 </br>
+<div class="buttons">
+<a href="{% url 'blog_update' blog.pk %}">Edit</a>
+</div>
+</br>
+<!-- <div class="detail__container">
+    <div class="buttons">
+        <a href="{% url 'blog_update' blog.pk %}" class="button is-info">
+            </a>
+            </div>
+            </div> -->
 <a href="{% url 'home' %}">Return</a>
 {% endblock %}
