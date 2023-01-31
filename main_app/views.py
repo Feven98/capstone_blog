@@ -31,3 +31,11 @@ class BlogCreate(CreateView):
     def get_success_url(self):
                 return reverse('blog_detail', kwargs={'pk':self.object.pk})
 
+#  Update post blog
+class BlogUpdate(UpdateView):
+    model = Blog
+    fields = ['title', 'writer', 'content']
+    template_name = "blog_update.html"
+
+    def get_success_url(self):
+                return reverse('blog_detail', kwargs={'pk':self.object.pk})
