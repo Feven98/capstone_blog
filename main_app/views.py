@@ -9,11 +9,14 @@ from .models import Blog
 # class Home(TemplateView):
 #     template_name = "home.html"
 
-class Home(ListView):
+class Home(ListView): # Blog shown page
     model = Blog
     template_name = "home.html"
 
 
-class About(TemplateView):
+class About(TemplateView):  # not sure what to include but needed
     template_name = "about.html"
 
+class BlogDetail(DetailView):  # Blog detail page
+    model = Blog
+    template_name = "blog_detail.html"
