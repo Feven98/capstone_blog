@@ -1,4 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
+{% block title %}Home{% endblock %}
 {% block content %}
 <h1>Guzo-Blog Home</h1>
+<ul>
+    {% for blog in object_list %}
+    <li>{{ blog.title }} - {{ blog.writer }}
+    </br>
+        {{ blog.content }}
+    </li>
+    {% endfor%}
+</ul>
 {% endblock %}
