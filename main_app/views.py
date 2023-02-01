@@ -49,12 +49,12 @@ class BlogDelete(DeleteView):
                 return reverse('home')
 
 # Comment create
-class CommentCreate(CreateView):
+class CommentCreate(View):
 
     def post(self, request, pk):
         name = request.POST.get("name")
         content = request.POST.get("content")
         blog = Blog.objects.get(pk=pk)
-        Comment.objects.create(name=name, content=content)
+        Comment.objects.create(name=name, content=content, blog=blog)
         return redirect('blog_detail', pk=pk)
     
