@@ -6,6 +6,8 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from .models import Blog, Comment
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 # class Home(TemplateView):
@@ -58,3 +60,20 @@ class CommentCreate(View):
         Comment.objects.create(name=name, content=content, blog=blog)
         return redirect('blog_detail', pk=pk)
     
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form submit, validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("blog_detail")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
+   
