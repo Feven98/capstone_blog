@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
-from .models import Blog
+from .models import Blog, Comment
 # Create your views here.
 
 # class Home(TemplateView):
@@ -49,5 +49,12 @@ class BlogDelete(DeleteView):
                 return reverse('home')
 
 # Comment create
-# class CommentCreate(CreateView):
+class CommentCreate(CreateView):
+
+    def post(self, request, pk):
+        name = request.POST.get("name")
+        content = request.POST.get("content")
+        blog = Blog.objects.get(pk=pk)
+        Comment.objects.create(name=name, content=content)
+        return redirect('blog_detail', pk=pk)
     
