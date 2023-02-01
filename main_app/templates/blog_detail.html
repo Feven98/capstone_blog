@@ -10,9 +10,9 @@
 
     {% for comment in blog.comments.all %}
     <div class="song">
-      <span>{{forloop.counter}}</span>
-      <span><b>{{comment.name}}</b></span>
-      <span>{{comment.content}}</span>
+      <!-- {{forloop.counter}} -->
+      {{comment.name}}-{{comment.comment_date}}
+      </br>{{comment.content}}
     </div>
 		{% empty %}
     <article class="message">

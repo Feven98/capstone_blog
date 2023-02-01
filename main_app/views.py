@@ -47,3 +47,7 @@ class BlogDelete(DeleteView):
    
     def get_success_url(self):
                 return reverse('home')
+
+# Comment create
+# class CommentCreate(CreateView):
+    
