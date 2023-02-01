@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% block title %}Home{% endblock %}
 {% block content %}
+{% if user.is_authenticated %}
 <h1>Create Post</h1>
 <form method="post">
     <!-- Security Feature  -->
@@ -10,4 +11,8 @@
     <!--  Submit form  -->
       <input type="submit" value="Post" />
     </form>
+    {% else %}
+
+  You are not logged in!!!
+  {% endif %}
 {% endblock %}

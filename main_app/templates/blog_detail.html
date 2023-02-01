@@ -50,8 +50,10 @@
   </div>
 
 <div class="buttons">
+  {% if user.is_authenticated %}
 <a href="{% url 'blog_update' blog.pk %}">Update</a>
 <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+{% endif %}
 </div>
 </br>
 <!-- <div class="detail__container">

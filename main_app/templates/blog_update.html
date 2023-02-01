@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% if user.is_authenticated %}
 <h1 class="pt-3">Update {{blog.title}}</h1>
 
 <div class="update-form">
@@ -9,4 +10,8 @@
    <!-- <input type="submit" value="Post" /> -->
 </form>
 </div>
+{% else %}
+
+  You are not logged in!!!
+  {% endif %}
 {% endblock %}
