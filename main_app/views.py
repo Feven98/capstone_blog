@@ -27,8 +27,13 @@ class BlogDetail(DetailView):  # Blog detail page
 
 class BlogCreate(CreateView):
     model = Blog
-    fields = ['title', 'writer', 'content']
+    fields = ['title', 'content']
     template_name = "blog_create.html"
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.writer = self.request.user
+        return super(BlogCreate, self).form_valid(form)
 
     def get_success_url(self):
                 return reverse('home')
