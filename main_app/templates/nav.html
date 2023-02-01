@@ -7,12 +7,20 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
           <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link text-white" href="{% url 'blog_create' %}">Create Post</a>
         </li>
+        {% if user.is_authenticated %}
+        <div class="welcome">
+                        <span class="text-md-left">Welcome: {{user.username}}</span>
+                      </div>
+                        <a class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                        <a class="nav-link text-white" href="{% url 'login' %}">Log In</a>
+                {% endif %}
       </ul>
     </div>
 </div>
