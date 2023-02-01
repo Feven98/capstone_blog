@@ -1,6 +1,8 @@
 {% extends 'base.html'%}
 {% block title %}Detail{% endblock %}
 {% block content %}
+<!-- Current User : {{ user.id }}
+Blog Writer : {{blog.writer.id}} -->
 <h1>{{blog.title}}</h1>
 <h2>By: {{blog.writer}}</h2>
 {{ blog.content}}
@@ -51,8 +53,10 @@
 
 <div class="buttons">
   {% if user.is_authenticated %}
+  {% if user.id == blog.writer.id %}
 <a href="{% url 'blog_update' blog.pk %}">Update</a>
 <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+{% endif %}
 {% endif %}
 </div>
 </br>
