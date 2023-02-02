@@ -28,3 +28,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.name
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for blog_id: {self.blog_id} @{self.url}"
