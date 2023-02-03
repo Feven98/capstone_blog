@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(81, 26, 65);
+    color: #351e1e;
+    min-height: 100vh;
+    margin-top: 10rem;
+    background-size: contain;
+}
+
+h1,h2 {
+    color: #18161f;
+}
+
+.title {
+    color: #ffffff;
+}
+.create{
+    background-color: #191039;
+}
+.a {
+    background-color: rgb(81, 26, 65);
+}

@@ -3,14 +3,18 @@
 {% block content %}
 {% if user.is_authenticated %}
 <h1>Create Post</h1>
+<div class="create">
 <form method="post">
     <!-- Security Feature  -->
       {% csrf_token %} 
     <!--  Generate inputs  -->
       {{form.as_p}} 
     <!--  Submit form  -->
+  <!--  create image form  -->
+  
       <input type="submit" value="Post" />
     </form>
+  </div>
     {% else %}
 
   You are not logged in!!!
