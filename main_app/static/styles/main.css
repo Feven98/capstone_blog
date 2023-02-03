@@ -1,10 +1,13 @@
-/* body{
-    background-color: rgb(183, 164, 177);
-    color: #765959;
+body{
+    background-color: rgb(180, 145, 170);
+    color: #0b0a08;
 }
 
 h1,h2 {
-    color: #817b96;
-} */
+    color: #150b3a;
+}
+.container1 {
+    background-color: antiquewhite;
+}
 
 

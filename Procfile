@@ -1,0 +1,1 @@
+web: gunicorn <guzo_blog>.wsgi
