@@ -4,14 +4,15 @@
 {% if user.is_authenticated %}
 <h1>Create Post</h1>
 <div class="create">
-<form method="post">
+<form action="{% url 'add_photo' blog.pk %}" method="post" enctype="multipart/form-data">
     <!-- Security Feature  -->
       {% csrf_token %} 
     <!--  Generate inputs  -->
-      {{form.as_p}} 
+      <!-- {{form.as_p}}  -->
     <!--  Submit form  -->
   <!--  create image form  -->
-  
+  <label >Add Photo to Blog</label>
+  <input type="file" name="photo-file"/>
   
       <input type="submit" value="Post" />
     </form>

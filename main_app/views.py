@@ -105,3 +105,29 @@ def add_photo(request, blog_id):
             print('An error occurred uploading file to S3')
             # return redirect('blog_detail', blog_id=blog_id)  
             # return reverse('home')
+
+class NewPhoto(View):
+    def get(self,request, blog_id):
+        # print(blog)
+        blog = Blog.objects.get(pk=blog_id)
+        print(blog.pk)
+        return render(request, "add_photo.html", {"blog" : blog})
+    def post(self, request, blog_id):
+        photo_file = request.FILES.get('photo-file', None)
+        print(photo_file)
+        if photo_file:
+            s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+            key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            # build the full url string
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # we can assign to cat_id or cat (if you have a cat object)
+            Photo.objects.create(url=url, blog_id=blog_id)
+        except:
+            print('An error occurred uploading file to S3')
+            return redirect("home")
+        return redirect(f"/blog/{blog_id}")
