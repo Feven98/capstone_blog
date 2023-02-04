@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(180, 145, 170);
+    background-color: rgb(164, 97, 169);
     color: #0b0a08;
 }
 
@@ -7,8 +7,20 @@ h1,h2 {
     color: #150b3a;
 }
 .container1 {
-    background-color: antiquewhite;
-    color: #150b3a;
+    /* background-color: rgb(92, 84, 73); */
+    color: #020009;
 }
-
+.postcontainer li{
+background-color: rgb(57, 92, 164);
+max-width: 50%;
+min-width: 50%;
+height:100%;
+border-radius: 10px 10px;
+/* display:flex; */
+flex-direction: column;
+justify-content: center;
+overflow: auto;
+margin: 10px;
+vertical-align: middle;
+}
 

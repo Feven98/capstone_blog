@@ -2,6 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 <h1>Guzo-Blog Home</h1>
+<div class="postcontainer">
 <ul>
     {% for blog in object_list %}
     <li>
@@ -12,4 +13,5 @@
     </li>
     {% endfor%}
 </ul>
+</div>
 {% endblock %}
