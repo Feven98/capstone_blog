@@ -3,7 +3,7 @@
 {% block content %}
 {% if user.is_authenticated %}
 <h1>Create Post</h1>
-<div class="create">
+<div class="createimage">
 <form action="{% url 'add_photo' blog.pk %}" method="post" enctype="multipart/form-data">
     <!-- Security Feature  -->
       {% csrf_token %} 

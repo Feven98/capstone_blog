@@ -56,3 +56,18 @@ text-align: center;
 border-top-right-radius: 9%;
 border-bottom-left-radius: 9%;
 }
+.container1 img {
+    /* position: absolute; */
+  left: 0;
+  top: 0;
+  margin-top: 20px;
+  width: 50%;
+  height: 50%;
+  /* background-color: #ffffff; */
+  /* overflow: hidden; */
+}
+.comment-section{
+    color: #201547;
+    margin-left: 2%;
+    border-radius: 10px 10px;
+}

@@ -6,6 +6,7 @@ Blog Writer : {{blog.writer.id}} -->
 <h1>{{blog.title}}</h1>
 <h2>By: {{blog.writer}} - {{blog.created_at}}</h2>
 {{ blog.content}}
+</br>
 {{blog.photo}}
 {% for photo in blog.photo_set.all %}
 <img class="responsive-img card-panel" src="{{photo.url}}">
@@ -15,7 +16,7 @@ Blog Writer : {{blog.writer.id}} -->
 
 </br>
 
-<div class="detail__songs mb-5">
+<div class="comment-section">
     <h3 class="title is-3">Comment</h3>
     <form class="mb-5" action="{% url 'comment_create' blog.pk %}" method="post">
         {% csrf_token %}
