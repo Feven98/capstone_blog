@@ -6,6 +6,7 @@
 <div class="update-form">
 <form action="" method="post">
   {% csrf_token %}
+  {{form.media}} 
    {{form.as_p}} 
  
    <a href="{% url 'update_photo' blog.pk %}">Add Image</a>

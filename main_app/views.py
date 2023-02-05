@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views import View
+from django.views import View, generic
 from django.http import HttpResponseRedirect
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Blog, Comment, Photo
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 import uuid
 import boto3
 import os
@@ -43,7 +43,7 @@ class BlogDetail(DetailView):  # Blog detail page
 
 class BlogCreate(CreateView):
     model = Blog
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'spoiler']
     template_name = "blog_create.html"
     
     def form_valid(self, form):
@@ -58,7 +58,7 @@ class BlogCreate(CreateView):
 #  Update post blog
 class BlogUpdate(UpdateView):
     model = Blog
-    fields = ['title', 'writer', 'content']
+    fields = ['title', 'writer', 'content', 'spoiler']
     template_name = "blog_update.html"
 
     def get_success_url(self):
@@ -181,4 +181,5 @@ def LikeView(request, pk):
         blog.likes.add(request.user)
         liked= True
      return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
+
 
