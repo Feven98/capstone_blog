@@ -18,7 +18,14 @@ Blog Writer : {{blog.writer.id}} -->
 {% endif %}
 {% endif %}
 </br>
+</br></br>
 
+<form action="{% url 'like_post' blog.pk %}"
+method="post">
+{% csrf_token %}
+<button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-primary btn-sm">Like</button> - {{ total_likes }} Likes
+</form>
+<br/>
 <div class="comment-section">
     <h3 class="title is-3">Comment</h3>
     <form class="mb-5" action="{% url 'comment_create' blog.pk %}" method="post">
@@ -80,11 +87,5 @@ Blog Writer : {{blog.writer.id}} -->
             </div>
             </div> -->
 <a href="{% url 'home' %}">Return</a>
-</br></br>
 
-<form action="{% url 'like_post' blog.pk %}"
-method="post">
-{% csrf_token %}
-<button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-primary btn-sm">Like</button> - {{ total_likes }} Likes
-</form>
 {% endblock %}

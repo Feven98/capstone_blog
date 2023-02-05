@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -27,6 +27,13 @@ class About(TemplateView):  # not sure what to include but needed
 class BlogDetail(DetailView):  # Blog detail page
     model = Blog
     template_name = "blog_detail.html"
+    
+    def get_context_data(self, **kwargs):
+            context = super(BlogDetail, self).get_context_data(**kwargs)
+            button = get_object_or_404(Blog, id=self.kwargs['pk'])
+            total_likes = button.total_likes
+            context["total_likes"]= total_likes
+            return context
 
 class BlogCreate(CreateView):
     model = Blog
@@ -158,4 +165,9 @@ class UpdatePhoto(View):
             print('An error occurred uploading file to S3')
             return redirect("home")
         return redirect(f"/blog/{blog_id}/update")
+    
+def LikeView(request, pk):
+     blog=  get_object_or_404(Blog, id=request.POST.get('blog_id'))
+     blog.likes.add(request.user)
+     return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
 
