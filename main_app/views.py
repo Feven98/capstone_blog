@@ -11,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 import uuid
 import boto3
 import os
+from .forms import SignUpForm
 # Create your views here.
 
 # class Home(TemplateView):
@@ -84,7 +85,7 @@ class CommentCreate(View):
 class Signup(View):
     # show a form to fill out
     def get(self, request):
-        form = UserCreationForm()
+        form = SignUpForm()
         context = {"form": form}
         return render(request, "registration/signup.html", context)
     # on form submit, validate the form and login the user.

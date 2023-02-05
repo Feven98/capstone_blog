@@ -19,7 +19,7 @@ Blog Writer : {{blog.writer.id}} -->
 {% endif %}
 </br>
 </br></br>
-
+{% if user.is_authenticated %}
 <form action="{% url 'like_post' blog.pk %}"
 method="post">
 {% csrf_token %}
@@ -27,6 +27,9 @@ method="post">
 <button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-danger btn-sm">Unlike</button>
 {% else %}
 <button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-primary btn-sm">Like</button>
+{% endif %}
+{% else %}
+<small>Login to like</small>
 {% endif %}
  - {{ total_likes }} Likes
 </form>
