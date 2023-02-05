@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 import uuid
 import boto3
 import os
-from .forms import SignUpForm
+from .forms import SignUpForm, EditProfileForm
 # Create your views here.
 
 # class Home(TemplateView):
@@ -185,12 +185,12 @@ def LikeView(request, pk):
 class EditProfile(View):
     # show a form to fill out
     def get(self, request):
-        form = UserChangeForm()
+        form = EditProfileForm()
         context = {"form": form}
         return render(request, "registration/profile_edit.html", context)
     # on form submit, validate the form and login the user.
     def post(self, request):
-        form = UserCreationForm(request.POST)
+        form = UserChangeForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
