@@ -13,7 +13,7 @@ class Blog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, related_name="title")
     likes = models.ManyToManyField(User, related_name='blog_posts')
-    spoiler = models.CharField(max_length=150, default='')
+    spoiler = models.TextField(max_length=150, default='')
     def total_likes(self):
         return self.likes.count()
     
@@ -41,3 +41,10 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo for blog_id: {self.blog_id} @{self.url}"
+    
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+
+    def __str__(self):
+        return str(self.user)
