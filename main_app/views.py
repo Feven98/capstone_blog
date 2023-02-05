@@ -7,7 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 from .models import Blog, Comment, Photo, Profile
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 import uuid
 import boto3
 import os
@@ -198,3 +199,7 @@ class EditProfile(View):
         else:
             context = {"form": form}
             return render(request, "registration/profile_edit.html", context)
+        
+class PasswordChangeView(PasswordChangeView):
+     form = PasswordChangeForm
+     success_url = reverse_lazy('home')

@@ -1,4 +1,5 @@
 from django.urls import path,include
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
     path('blog/<int:blog_id>/update_photo', views.UpdatePhoto.as_view(), name="update_photo"),
     path('like/<int:pk>', views.LikeView, name='like_post'),
     path('profile_edit/', views.EditProfile.as_view(), name="profile_edit"),
+    path('password/', auth_views.PasswordChangeView.as_view(template_name = "registration/password_change.html")),
 ]
