@@ -8,15 +8,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
     <script src="{% static 'scripts/main.js' %}" defer></script>
-    <title>Guzo-Blog</title>
+    <title>Guzo-Blog  - {% block title %}{% endblock %}</title>
     <!-- <div class="nav-item">
       <a class="button is-dark" href="{% url 'blog_create' %}">Create Post</a>
     </div> -->
   </head>
   <body>
     {% include 'nav.html' %}
+    
     <!-- <h1>Guzo-Blog Home</h1> -->
 
     <!-- Optional JavaScript; choose one of the two! -->

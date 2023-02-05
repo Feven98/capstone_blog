@@ -12,4 +12,5 @@ urlpatterns = [
     path('accounts/signup', views.Signup.as_view(), name="signup"),
     path('blog/<int:blog_id>/add_photo/', views.NewPhoto.as_view(), name="add_photo"),
     path('blog/<int:blog_id>/update_photo', views.UpdatePhoto.as_view(), name="update_photo"),
+    path('like/<int:pk>', views.LikeView, name='like_post'),
 ]
