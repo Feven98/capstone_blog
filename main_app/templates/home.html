@@ -9,7 +9,7 @@
         <a href="{% url 'blog_detail' blog.pk %}">
         {{ blog.title }}</a> - {{ blog.writer }} - {{ blog.created_at}}
     </br>
-       {{ blog.content }}
+       {{ blog.content|safe }}
     </li>
     {% endfor%}
 </ul>

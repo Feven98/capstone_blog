@@ -5,9 +5,10 @@
 Blog Writer : {{blog.writer.id}} -->
 <h1>{{blog.title}}</h1>
 <h2>By: {{blog.writer}} - {{blog.created_at}}</h2>
-{{ blog.content}}
+{{ blog.content|safe }}
 </br>
 {{blog.photo}}
+
 {% if user.is_authenticated %}
   {% if user.id == blog.writer.id %}
 {% for photo in blog.photo_set.all %}
@@ -86,8 +87,12 @@ method="post">
 
 {% endif %}
 {% endif %}
+</small><br/>
+</br>
+
 </div>
 </br>
+
 <!-- <div class="detail__container">
     <div class="buttons">
         <a href="{% url 'blog_update' blog.pk %}" class="button is-info">
