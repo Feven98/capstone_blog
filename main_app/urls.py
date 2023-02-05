@@ -11,4 +11,5 @@ urlpatterns = [
     path('blog/<int:pk>/comments/new', views.CommentCreate.as_view(), name="comment_create"),
     path('accounts/signup', views.Signup.as_view(), name="signup"),
     path('blog/<int:blog_id>/add_photo/', views.NewPhoto.as_view(), name="add_photo"),
+    path('blog/<int:blog_id>/update_photo', views.UpdatePhoto.as_view(), name="update_photo"),
 ]

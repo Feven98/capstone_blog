@@ -7,6 +7,9 @@
 <form action="" method="post">
   {% csrf_token %}
    {{form.as_p}} 
+ 
+   <a href="{% url 'update_photo' blog.pk %}">Add Image</a>
+   <br/>
    <button class="btn  btn-secondary"> Update Post</button>
    <!-- <input type="submit" value="Post" /> -->
 </form>

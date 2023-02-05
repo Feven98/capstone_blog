@@ -7,10 +7,6 @@
 <form action="{% url 'add_photo' blog.pk %}" method="post" enctype="multipart/form-data">
     <!-- Security Feature  -->
       {% csrf_token %} 
-    <!--  Generate inputs  -->
-      <!-- {{form.as_p}}  -->
-    <!--  Submit form  -->
-  <!--  create image form  -->
   <label >Add Photo to Blog</label>
   <input type="file" name="photo-file"/>
   
