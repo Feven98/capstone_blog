@@ -32,7 +32,12 @@ class BlogDetail(DetailView):  # Blog detail page
             context = super(BlogDetail, self).get_context_data(**kwargs)
             button = get_object_or_404(Blog, id=self.kwargs['pk'])
             total_likes = button.total_likes
+            liked = False
+            if button.likes.filter(id=self.request.user.id):
+                liked = True
+
             context["total_likes"]= total_likes
+            context["liked"] = liked
             return context
 
 class BlogCreate(CreateView):
@@ -168,6 +173,11 @@ class UpdatePhoto(View):
     
 def LikeView(request, pk):
      blog=  get_object_or_404(Blog, id=request.POST.get('blog_id'))
-     blog.likes.add(request.user)
+     liked = False
+     if blog.likes.filter(id=request.user.id).exists():
+        blog.likes.remove(request.user)
+     else:
+        blog.likes.add(request.user)
+        liked= True
      return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
 
