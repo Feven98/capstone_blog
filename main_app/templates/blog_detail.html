@@ -8,12 +8,15 @@ Blog Writer : {{blog.writer.id}} -->
 {{ blog.content}}
 </br>
 {{blog.photo}}
+{% if user.is_authenticated %}
+  {% if user.id == blog.writer.id %}
 {% for photo in blog.photo_set.all %}
 <img class="responsive-img card-panel" src="{{photo.url}}">
 {% empty %}
-<div class="card-panel teal-text center-align">No Photos Uploaded</div>
+<div class="card-panel teal-text center-align">No Photos Uploaded. You want to add image<a href="{% url 'add_photo' blog.pk %}">Image</a></div>
 {% endfor %}
-
+{% endif %}
+{% endif %}
 </br>
 
 <div class="comment-section">
@@ -65,6 +68,7 @@ Blog Writer : {{blog.writer.id}} -->
   {% if user.id == blog.writer.id %}
 <a href="{% url 'blog_update' blog.pk %}">Update</a>
 <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+
 {% endif %}
 {% endif %}
 </div>

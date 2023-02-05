@@ -5,6 +5,8 @@
 
 <div class="create">
   <h1>Create Post</h1>
+
+    <!-- Security Feature  -->
 <form method="post">
     <!-- Security Feature  -->
       {% csrf_token %} 
@@ -12,10 +14,14 @@
       {{form.as_p}} 
     <!--  Submit form  -->
   <!--  create image form  -->
-<p >You want to add a Picture</p>
-  
+
+
+
+
+
       <input type="submit" value="Post" />
     </form>
+
   </div>
     {% else %}
 

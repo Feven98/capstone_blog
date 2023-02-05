@@ -40,6 +40,7 @@ class BlogCreate(CreateView):
 
     def get_success_url(self):
                 return reverse('home')
+                
 
 #  Update post blog
 class BlogUpdate(UpdateView):
