@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
-from .models import Blog, Comment, Photo
+from .models import Blog, Comment, Photo, Profile
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 import uuid
@@ -182,4 +182,19 @@ def LikeView(request, pk):
         liked= True
      return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
 
-
+class EditProfile(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserChangeForm()
+        context = {"form": form}
+        return render(request, "registration/profile_edit.html", context)
+    # on form submit, validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+        else:
+            context = {"form": form}
+            return render(request, "registration/profile_edit.html", context)

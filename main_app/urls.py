@@ -13,4 +13,5 @@ urlpatterns = [
     path('blog/<int:blog_id>/add_photo/', views.NewPhoto.as_view(), name="add_photo"),
     path('blog/<int:blog_id>/update_photo', views.UpdatePhoto.as_view(), name="update_photo"),
     path('like/<int:pk>', views.LikeView, name='like_post'),
+    path('profile_edit/', views.EditProfile.as_view(), name="profile_edit"),
 ]
