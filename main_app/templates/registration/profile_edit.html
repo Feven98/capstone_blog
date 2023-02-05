@@ -5,6 +5,7 @@
 
 <div class="edit-form">
     <h1>edit</h1>
+    {{user.profile.bio}}
     <form method="post">
         {% csrf_token %} {{ form.as_p }}
         <button class="btn btn-secondary">edit</button>

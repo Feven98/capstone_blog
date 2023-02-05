@@ -202,4 +202,7 @@ class EditProfile(View):
         
 class PasswordChangeView(PasswordChangeView):
      form = PasswordChangeForm
-     success_url = reverse_lazy('home')
+     success_url = reverse_lazy('password_changed')
+
+def password_changed(request):
+    return render(request, 'registration/password_changed.html')

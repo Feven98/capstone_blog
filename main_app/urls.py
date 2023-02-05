@@ -16,4 +16,5 @@ urlpatterns = [
     path('like/<int:pk>', views.LikeView, name='like_post'),
     path('profile_edit/', views.EditProfile.as_view(), name="profile_edit"),
     path('password/', auth_views.PasswordChangeView.as_view(template_name = "registration/password_change.html")),
+    path('password_changed/', views.password_changed, name="password_changed"),
 ]
