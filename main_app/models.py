@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Blog(models.Model):
@@ -7,7 +8,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=150)
     # writer = models.TextField(max_length=300)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField(max_length=300)
+    # content = models.TextField(max_length=300)
+    content = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, related_name="title")
     likes = models.ManyToManyField(User, related_name='blog_posts')
