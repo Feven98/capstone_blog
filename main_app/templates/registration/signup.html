@@ -4,13 +4,17 @@
 
 
 <div class="login-form">
+    
+
     <h1>Sign Up</h1>
-    <form method="post" action="{% url 'signup' %}">
-        {% csrf_token %} {{ form.as_p }}
-        <button class="btn btn-secondary">Sign Up</button>
+    <form method="post"  action="{% url 'signup' %}"  >
+        {% csrf_token %}
+         {{ form.as_p }}
+        <button class="signupbtn">Sign Up</button>
         </form>
         <br/>
-        Have accounet? Log In here<a href="{% url 'login' %}"> Here...</a>
+        Have account? Log In here<a href="{% url 'login' %}"> Here...</a>
+</div>
 </div>
 <!-- Have accounet? Log In here<a href="{% url 'login' %}"> Here...</a> -->
 {% endblock %}

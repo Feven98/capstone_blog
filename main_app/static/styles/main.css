@@ -1,7 +1,19 @@
-body{
-    background-color: rgb(164, 97, 169);
-    color: #0b0a08;
+* {
+  box-sizing: border-box;
 }
+body{
+    /* background-color: rgba(201, 76, 76, 0.3); */
+    /* background-color: rgb(95, 134, 206); */
+    color: #0b0a08;
+    min-height: 100vh;
+    background: radial-gradient(circle at center,  rgba(174, 196, 88, 0.3) 40%, rgba(134, 65, 135, 0.538) 100%);
+  /* display: flex;
+  justify-content: center; */
+  background: radial-gradient(circle at center,  rgb(67, 116, 160) 30%, rgb(167, 72, 148) 100%)
+    
+    /* height: 100%; */
+}
+
 
 h1,h2 {
     color: #150b3a;
@@ -11,10 +23,11 @@ h1,h2 {
     color: #020009;
 }
 .postcontainer li{
-background-color: rgb(148, 159, 182);
+    background: radial-gradient(rgb(233, 217, 198) 30%, rgb(204, 186, 229) 100%);
 max-width: 50%;
 min-width: 50%;
-height:100%;
+/* height:100%; */
+min-height: 100%;
 border-radius: 10px 10px;
 /* display:flex; */
 flex-direction: column;
@@ -23,38 +36,53 @@ overflow: auto;
 margin: 10px;
 vertical-align: middle;
 }
-.login-form{
+.login-form {
     background-color: rgb(60, 180, 142);
-    max-width: 70%;
-min-width: 50%;
-height:120%;
-border-radius: 10px 10px;
+    background: url("https://media.istockphoto.com/id/1205613046/photo/top-view-of-modern-office-workspace.jpg?b=1&s=170667a&w=0&k=20&c=bWOA9d-nbIlSYT8ukXiJTAgMre8hbYjr5gKNarNbIGE="); 
+   background-position: center;
+   background-size:cover;
+   background-repeat: no-repeat;
+   /* height: 100%; */
+   white-space: nowrap; 
+   min-height: 380px;
+   position: relative;
+   margin: 50px;
+   
+border-radius: 10px 10px; 
 /* display:flex; */
 flex-direction: column;
-/* justify-content: center; */
+justify-content: center;
 overflow: auto;
-margin: 100px;
-/* vertical-align:middle; */
-/* text-align: center; */
-border-top-right-radius: 9%;
-border-bottom-left-radius: 2%;
-}
+vertical-align:middle;
+text-align: center;
 
+border-top-right-radius: 9%;
+border-bottom-left-radius: 2%; 
+}
+.login-form input{
+    margin-top: 20px;
+   display: inline-block;
+
+    
+}
 .create{
-    background-color: rgb(48, 64, 114);
-    max-width: 50%;
-min-width: 50%;
-height:100%;
+    background-color: rgb(189, 194, 208);
+    max-width: 100%;
+min-width: 100%;
+height:150%;
 border-radius: 10px 10px;
 /* display:flex; */
 flex-direction: column;
 justify-content: center;
 overflow: auto;
-margin: 100px;
+margin-top: 30px;
 vertical-align:middle;
 text-align: center;
 border-top-right-radius: 9%;
 border-bottom-left-radius: 9%;
+display: inline-block;
+padding: 10px;
+
 }
 .container1 img {
     /* position: absolute; */
@@ -71,3 +99,33 @@ border-bottom-left-radius: 9%;
     margin-left: 2%;
     border-radius: 10px 10px;
 }
+/* .form-control{
+   justify-content: center;
+} */
+.signupbtn{
+    
+        background-color: #721072;
+        color: rgb(206, 198, 198);
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        /* width: 100%; */
+        opacity: 0.9;
+      
+}
+.signupbtn:hover {
+    opacity: 1;
+  }
+.form-control {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #a39191;
+    outline: none;
+    font-weight: bolder;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: larger;
+  }

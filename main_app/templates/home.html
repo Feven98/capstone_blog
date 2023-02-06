@@ -4,6 +4,7 @@
 <h1>Guzo-Blog Home</h1>
 <div class="postcontainer">
 <ul>
+    {% if user.is_authenticated %}
     {% for blog in object_list %}
     <li>
         <a href="{% url 'blog_detail' blog.pk %}">
@@ -12,7 +13,11 @@
     {{ blog.spoiler }}
        <!-- {{ blog.content|safe }} -->
     </li>
+   
     {% endfor%}
+    {% else %}
+    <p>Log in to view</p>
+    {% endif %}
 </ul>
 </div>
 {% endblock %}
