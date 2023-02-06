@@ -35,11 +35,13 @@
                     <span class="navbar-item">Welcome: {{user.username}}</span>
                     <a class="navbar-item" href="/blog/new">Create Post</a>
                     <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="navbar-item" href="{% url 'profile_edit' %}">Edit Profile</a>
                 </div>
             {% else %}
                 <div class="navbar-menu navbar-end">
                     <a class="navbar-item" href="{% url 'login' %}">Log In</a>
                     <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
+                   
                 </div>
             {% endif %}
         </nav>

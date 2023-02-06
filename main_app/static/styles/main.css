@@ -1,122 +1,135 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-body{
+
+body {
     /* background-color: rgba(201, 76, 76, 0.3); */
     /* background-color: rgb(95, 134, 206); */
     color: #0b0a08;
     min-height: 100vh;
-    background: radial-gradient(circle at center,  rgba(174, 196, 88, 0.3) 40%, rgba(134, 65, 135, 0.538) 100%);
-  /* display: flex;
+    background: radial-gradient(circle at center, rgba(174, 196, 88, 0.3) 40%, rgba(134, 65, 135, 0.538) 100%);
+    /* display: flex;
   justify-content: center; */
-  background: radial-gradient(circle at center,  rgb(67, 116, 160) 30%, rgb(167, 72, 148) 100%)
-    
-    /* height: 100%; */
+    background: radial-gradient(circle at center, rgb(182, 126, 158) 30%, rgb(127, 109, 159) 100%)
+        /* height: 100%; */
 }
 
 
-h1,h2 {
+h1,
+h2 {
     color: #150b3a;
+    font-size: larger;
+    font-weight: bolder;
 }
+
 .container1 {
     /* background-color: rgb(92, 84, 73); */
     color: #020009;
 }
-.postcontainer li{
+
+.postcontainer li {
     background: radial-gradient(rgb(233, 217, 198) 30%, rgb(204, 186, 229) 100%);
-max-width: 50%;
-min-width: 50%;
-/* height:100%; */
-min-height: 100%;
-border-radius: 10px 10px;
-/* display:flex; */
-flex-direction: column;
-justify-content: center;
-overflow: auto;
-margin: 10px;
-vertical-align: middle;
+    max-width: 50%;
+    min-width: 50%;
+    /* height:100%; */
+    min-height: 100%;
+    border-radius: 10px 10px;
+    /* display:flex; */
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    margin: 10px;
+    vertical-align: middle;
 }
+
 .login-form {
     background-color: rgb(60, 180, 142);
-    background: url("https://media.istockphoto.com/id/1205613046/photo/top-view-of-modern-office-workspace.jpg?b=1&s=170667a&w=0&k=20&c=bWOA9d-nbIlSYT8ukXiJTAgMre8hbYjr5gKNarNbIGE="); 
-   background-position: center;
-   background-size:cover;
-   background-repeat: no-repeat;
-   /* height: 100%; */
-   white-space: nowrap; 
-   min-height: 380px;
-   position: relative;
-   margin: 50px;
-   
-border-radius: 10px 10px; 
-/* display:flex; */
-flex-direction: column;
-justify-content: center;
-overflow: auto;
-vertical-align:middle;
-text-align: center;
+    background: url("https://media.istockphoto.com/id/1205613046/photo/top-view-of-modern-office-workspace.jpg?b=1&s=170667a&w=0&k=20&c=bWOA9d-nbIlSYT8ukXiJTAgMre8hbYjr5gKNarNbIGE=");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 100%; */
+    white-space: nowrap;
+    min-height: 380px;
+    position: relative;
+    margin: 50px;
 
-border-top-right-radius: 9%;
-border-bottom-left-radius: 2%; 
+    border-radius: 10px 10px;
+    /* display:flex; */
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    vertical-align: middle;
+    text-align: center;
+
+    border-top-right-radius: 9%;
+    border-bottom-left-radius: 2%;
 }
-.login-form input{
+
+.login-form input {
     margin-top: 20px;
-   display: inline-block;
+    display: inline-block;
 
-    
+
 }
-.create{
-    background-color: rgb(189, 194, 208);
+
+.create {
+    background-color: rgb(137, 151, 189);
     max-width: 100%;
-min-width: 100%;
-height:150%;
-border-radius: 10px 10px;
-/* display:flex; */
-flex-direction: column;
-justify-content: center;
-overflow: auto;
-margin-top: 30px;
-vertical-align:middle;
-text-align: center;
-border-top-right-radius: 9%;
-border-bottom-left-radius: 9%;
-display: inline-block;
-padding: 10px;
+    min-width: 100%;
+    height: 150%;
+    border-radius: 10px 10px;
+    /* display:flex; */
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    margin-top: 30px;
+    vertical-align: middle;
+    text-align: center;
+    border-top-right-radius: 9%;
+    border-bottom-left-radius: 9%;
+    display: inline-block;
+    padding: 10px;
 
 }
+
 .container1 img {
     /* position: absolute; */
-  left: 0;
-  top: 0;
-  margin-top: 20px;
-  width: 50%;
-  height: 50%;
-  /* background-color: #ffffff; */
-  /* overflow: hidden; */
+    left: 0;
+    top: 0;
+    margin-top: 20px;
+    width: 50%;
+    height: 50%;
+    /* background-color: #ffffff; */
+    /* overflow: hidden; */
 }
-.comment-section{
+
+.comment-section {
     color: #201547;
     margin-left: 2%;
     border-radius: 10px 10px;
 }
+
 /* .form-control{
    justify-content: center;
 } */
-.signupbtn{
-    
-        background-color: #721072;
-        color: rgb(206, 198, 198);
-        padding: 16px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        /* width: 100%; */
-        opacity: 0.9;
-      
+.signupbtn {
+
+    background-color: #721072;
+    color: rgb(206, 198, 198);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    /* width: 100%; */
+    opacity: 0.9;
+
 }
+
 .signupbtn:hover {
     opacity: 1;
-  }
+}
+
 .form-control {
     width: 90%;
     padding: 15px;
@@ -126,6 +139,37 @@ padding: 10px;
     background: #a39191;
     outline: none;
     font-weight: bolder;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
-  }
+}
+
+.commentbtn {
+    background-color: #733573;
+    color: rgb(29, 17, 17);
+    padding: 16px 20px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    /* width: 100%; */
+    opacity: 0.9;
+}
+
+.commentbtn:hover {
+    opacity: 1;
+}
+
+.createbtn {
+    background-color: #733573;
+    color: rgb(29, 17, 17);
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    /* width: 100%; */
+    opacity: 10;
+    border-radius: 9px;
+}
+
+.createbtn:hover {
+    opacity: 1;
+}

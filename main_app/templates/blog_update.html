@@ -8,9 +8,10 @@
   {% csrf_token %}
   {{form.media}} 
    {{form.as_p}} 
- 
-   <a href="{% url 'update_photo' blog.pk %}">Add Image</a>
-   <br/>
+ <br/>
+   <a href="{% url 'update_photo' blog.pk %}">Click Here To Add Image</a>
+   <br/><br/>
+   
    <button class="btn  btn-secondary"> Update Post</button>
    <!-- <input type="submit" value="Post" /> -->
 </form>

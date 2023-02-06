@@ -5,8 +5,21 @@
 Blog Writer : {{blog.writer.id}} -->
 
 <h1>{{blog.title}}</h1>
-<h2>By: {{blog.writer}} - {{blog.created_at}}</h2>
+<small>By: {{ blog.writer}} - {{blog.created_at}}</small>
+<!-- <div class="buttons"> -->
+  {% if user.is_authenticated %}
+  {% if user.id == blog.writer.id %}
+<a href="{% url 'blog_update' blog.pk %}"> [Update] </a> |
+
+<a href="{% url 'blog_delete' blog.pk %}"> [Delete]</a>
+
+{% endif %}
+{% endif %}
+</br>
+
+
 <!-- {{blog.spoiler}} -->
+<hr>
 {{ blog.content|safe }}
 </br>
 {{blog.photo}}
@@ -17,7 +30,7 @@ Blog Writer : {{blog.writer.id}} -->
 {% for photo in blog.photo_set.all %}
 <img class="responsive-img card-panel" src="{{photo.url}}">
 {% empty %}
-<div class="card-panel teal-text center-align">No Photos Uploaded. You want to add image<a href="{% url 'add_photo' blog.pk %}">Image</a></div>
+<div class="card-panel teal-text center-align">No Photos Uploaded. You want to add image <a href="{% url 'add_photo' blog.pk %}"> Click Here</a></div>
 {% endfor %}
 {% endif %}
 {% endif %}
@@ -30,6 +43,7 @@ method="post">
 {% if liked %}
 <button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-danger btn-sm">Unlike</button>
 {% else %}
+</br>
 <button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-primary btn-sm">Like</button>
 {% endif %}
 {% else %}
@@ -37,37 +51,10 @@ method="post">
 {% endif %}
  - {{ total_likes }} Likes
 </form>
-<br/>
-<div class="comment-section">
-    <h3 class="title is-3">Comment</h3>
-    <form class="mb-5" action="{% url 'comment_create' blog.pk %}" method="post">
-        {% csrf_token %}
-        <div class="field has-addons">
-            <div class="control">
-                <input
-                    class="input"
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    required
-                />
-            </div>
-            <div class="control">
-                <input
-                    class="input"
-                    type="text"
-                    name="content"
-                    placeholder="Content"
-                />
-            </div>
-            <div class="control">
-                <input class="button is-primary" type="submit" value="Add Comment" />
-            </div>
-        </div>
-    </form>
-
-    {% for comment in blog.comments.all %}
-    <div class="song">
+</br>
+<h1>All Comments...</h1>
+{% for comment in blog.comments.all %}
+    <div class="comment">
       <!-- {{forloop.counter}} -->
       {{comment.name}}-{{comment.comment_date}}
       </br>{{comment.content}}
@@ -80,28 +67,42 @@ method="post">
     </article>
 
     {% endfor %}
+<div class="comment-section">
+    <h3 class="title is-3">Add a Comment...</h3>
+    <form class="mb-5" action="{% url 'comment_create' blog.pk %}" method="post">
+        {% csrf_token %}
+        <div class="field has-addons">
+            <div class="control">
+                <input
+                    class="input"
+                    type="text"
+                    name="name"
+                    placeholder="Name of Comment Giver"
+                    required
+                />
+            </div>
+            <div class="control">
+                <input
+                    class="input"
+                    type="text"
+                    name="content"
+                    placeholder="Comment"
+                />
+            </div>
+            <div class="control">
+                <input class="commentbtn" type="submit" value="Add Comment" />
+            </div>
+        </div>
+    </form>
+
   </div>
 
-<div class="buttons">
-  {% if user.is_authenticated %}
-  {% if user.id == blog.writer.id %}
-<a href="{% url 'blog_update' blog.pk %}">Update</a>
-<a href="{% url 'blog_delete' blog.pk %}">Delete</a>
 
-{% endif %}
-{% endif %}
-</small><br/>
+
+
 </br>
 
-</div>
-</br>
 
-<!-- <div class="detail__container">
-    <div class="buttons">
-        <a href="{% url 'blog_update' blog.pk %}" class="button is-info">
-            </a>
-            </div>
-            </div> -->
-<a href="{% url 'home' %}">Return</a>
+<a href="{% url 'home' %}">Return To Homepage</a>
 
 {% endblock %}
