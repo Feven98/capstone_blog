@@ -4,7 +4,7 @@
 
 {% if user.is_authenticated %}
 {% if user.id == blog.writer.id %}
-<h1>Add Image</h1>
+<h1>Add An Image</h1>
 <form action="{% url 'update_photo' blog.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
     {% csrf_token %}
     <input type="file" name="photo-file"/>
