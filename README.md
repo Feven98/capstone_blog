@@ -99,3 +99,7 @@ This application is full crud with Django. Its user authenticated which gives th
 
 - Follow/Unfollow other blog creators
 
+## Bugs? Suggestions?
+
+Email Feven :  <rutemikey1@gmail.com>
+
