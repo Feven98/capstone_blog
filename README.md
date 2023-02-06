@@ -26,7 +26,7 @@ This application is full crud with Django. Its user authenticated which gives th
 
 - Fork and clone this repository.
 
-- Change into the new directory (cd <directory-name>).
+- Change into the new directory (cd - directory_name).
 
 - Set up your Django environment:
 
@@ -41,4 +41,8 @@ This application is full crud with Django. Its user authenticated which gives th
 - Then, you need to run the server using (python3 manage.py runserver) 
 
 - Lastly, you need to navigate to (http://localhost:8000) to see the homepage in your browser
+
+# Link to user stories
+
+<a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#user-stories>User Stories and Flow</a>
 
