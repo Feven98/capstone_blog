@@ -21,3 +21,24 @@ This application is full crud with Django. Its user authenticated which gives th
 - Bootstrap
 - Bulma
 - CSS
+
+# Getting Started
+
+- Fork and clone this repository.
+
+- Change into the new directory (cd <directory-name>).
+
+- Set up your Django environment:
+
+    - Install pipenv (pip3 install pipenv)
+
+    - Install django (pipenv install django)
+
+- Then activate your virtual enviroment (pipenv shell - if this command not work you can use - python3 -m pipenv shell)
+
+- Next, open your vs code (code .)
+
+- Then, you need to run the server using (python3 manage.py runserver) 
+
+- Lastly, you need to navigate to (http://localhost:8000) to see the homepage in your browser
+
