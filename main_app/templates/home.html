@@ -3,20 +3,19 @@
 {% block content %}
 <h1>Guzo-Blog Home</h1>
 <div class="postcontainer">
-<ul>
-    {% if user.is_authenticated %}
-    {% for blog in object_list %}
-    <li>
-        <a href="{% url 'blog_detail' blog.pk %}">
-        {{ blog.title }}</a> - {{ blog.writer }} - {{ blog.created_at}}
-    </br>
-    {{ blog.spoiler }}
-       </li>
-   
-    {% endfor%}
-    {% else %}
-    <p>Log in to view posts!</p>
-    {% endif %}
-</ul>
+    <ul>
+        {% if user.is_authenticated %}
+        {% for blog in object_list %}
+        <li>
+            <a href="{% url 'blog_detail' blog.pk %}">
+                {{ blog.title }}</a> - {{ blog.writer }} - {{ blog.created_at}}
+            </br>
+            {{ blog.spoiler }}
+        </li>
+        {% endfor%}
+        {% else %}
+        <p>Log in to view posts!</p>
+        {% endif %}
+    </ul>
 </div>
 {% endblock %}

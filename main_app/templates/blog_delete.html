@@ -1,20 +1,20 @@
 {% extends 'base.html' %} {% block content %}
+
 {% if user.is_authenticated %}
 {% if user.id == blog.writer.id %}
-<h1 class="pt-3">Are you sure you want to Delete {{blog.title}}</h1>
 
+<h1 class="pt-3">Are you sure you want to Delete {{blog.title}}</h1>
 <div class="delete-form">
-<form action="" method="post">
-  {% csrf_token %}
-   <button class="btn  btn-secondary"> Delete Post</button>
-   <!-- <input type="submit" value="Post" /> -->
-</form>
+  <form action="" method="post">
+    {% csrf_token %}
+    <button class="btn  btn-secondary"> Delete Post</button>
+  </form>
 </div>
 {% else %}
 You can not delete it.
 {% endif %}
 {% else %}
 
-  You are not logged in!!!
-  {% endif %}
+You are not logged in!!!
+{% endif %}
 {% endblock %}

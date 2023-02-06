@@ -4,24 +4,22 @@
 <h1 class="pt-3">Update {{blog.title}}</h1>
 
 <div class="update-form">
-<form action="" method="post">
-  {% csrf_token %}
-  {{form.media}} 
-   {{form.as_p}} 
- <br/>
-   <a href="{% url 'update_photo' blog.pk %}">Click Here To Add An Image</a>
-   <br/><br/>
-   
-   <button class="btn  btn-secondary"> Update Post</button>
-   <!-- <input type="submit" value="Post" /> -->
-</form>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <br />
+    <a href="{% url 'update_photo' blog.pk %}">Click Here To Add An Image</a>
+    <br /><br />
+    <button class="btn  btn-secondary"> Update Post</button>
+  </form>
 </div>
 {% else %}
 You are not the user!
 {% endif %}
 {% else %}
 
-  You are not logged in!!!
-  {% endif %}
-  
+You are not logged in!!!
+{% endif %}
+
 {% endblock %}

@@ -1,15 +1,12 @@
 {% extends 'base.html'%}
 {% block title %}Detail{% endblock %}
 {% block content %}
-<!-- Current User : {{ user.id }}
-Blog Writer : {{blog.writer.id}} -->
 
 <h1>{{blog.title}}</h1>
 <small>By: {{ blog.writer}} - {{blog.created_at}}</small>
-<!-- <div class="buttons"> -->
-  
-  {% if user.is_authenticated %}
-  {% if user.id == blog.writer.id %}
+
+{% if user.is_authenticated %}
+{% if user.id == blog.writer.id %}
 <a href="{% url 'blog_update' blog.pk %}"> [Update] </a> |
 
 <a href="{% url 'blog_delete' blog.pk %}"> [Delete]</a>
@@ -26,85 +23,66 @@ Blog Writer : {{blog.writer.id}} -->
 {% for photo in blog.photo_set.all %}
 <img class="responsive-img card-panel" src="{{photo.url}}">
 {% endfor %}
-<!-- <img src={{blog.photo_set}}/> -->
 
 {% if user.is_authenticated %}
-  {% if user.id == blog.writer.id %}
+{% if user.id == blog.writer.id %}
 {% for photo in blog.photo_set.all %}
 <img class="responsive-img card-panel" src="{{photo.url}}">
 {% empty %}
-<div class="card-panel teal-text center-align">No Photos Uploaded. You want to add image <a href="{% url 'add_photo' blog.pk %}"> Click Here</a></div>
+<div class="card-panel teal-text center-align">No Photos Uploaded. You want to add image <a
+    href="{% url 'add_photo' blog.pk %}"> Click Here</a></div>
 {% endfor %}
 {% endif %}
 {% endif %}
 </br>
 </br></br>
 {% if user.is_authenticated %}
-<form action="{% url 'like_post' blog.pk %}"
-method="post">
-{% csrf_token %}
-{% if liked %}
-<button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-danger btn-sm">Unlike</button>
-{% else %}
-</br>
-<button type="submit", name="blog_id", value="{{blog.id}}", class="btn btn-primary btn-sm">Like</button>
-{% endif %}
-{% else %}
-<small>Login to like</small>
-{% endif %}
- - {{ total_likes }} Likes
+<form action="{% url 'like_post' blog.pk %}" method="post">
+  {% csrf_token %}
+  {% if liked %}
+  <button type="submit" , name="blog_id" , value="{{blog.id}}" , class="btn btn-danger btn-sm">Unlike</button>
+  {% else %}
+  </br>
+  <button type="submit" , name="blog_id" , value="{{blog.id}}" , class="btn btn-primary btn-sm">Like</button>
+  {% endif %}
+  {% else %}
+  <small>Login to like</small>
+  {% endif %}
+  - {{ total_likes }} Likes
 </form>
 </br>
 <h1>All Comments...</h1>
 {% for comment in blog.comments.all %}
-    <div class="comment">
-      <!-- {{forloop.counter}} -->
-      {{comment.name}}-{{comment.comment_date}}
-      </br>{{comment.content}}
-    </div>
-		{% empty %}
-    <article class="message">
-      <div class="message-header">
-        <p>No comment Available</p>
-      </div>
-    </article>
-
-    {% endfor %}
-<div class="comment-section">
-    <h3 class="title is-3">Add a Comment...</h3>
-    <form class="mb-5" action="{% url 'comment_create' blog.pk %}" method="post">
-        {% csrf_token %}
-        <div class="field has-addons">
-            <div class="control">
-                <input
-                    class="input"
-                    type="text"
-                    name="name"
-                    placeholder="Name of Comment Giver"
-                    required
-                />
-            </div>
-            <div class="control">
-                <input
-                    class="input"
-                    type="text"
-                    name="content"
-                    placeholder="Comment"
-                />
-            </div>
-            <div class="control">
-                <input class="commentbtn" type="submit" value="Add Comment" />
-            </div>
-        </div>
-    </form>
-
+<div class="comment">
+  {{comment.name}}-{{comment.comment_date}}
+  </br>{{comment.content}}
+</div>
+{% empty %}
+<article class="message">
+  <div class="message-header">
+    <p>No comment Available</p>
   </div>
+</article>
 
-
-
-
+{% endfor %}
+<div class="comment-section">
+  <h3 class="title is-3">Add a Comment...</h3>
+  <form class="mb-5" action="{% url 'comment_create' blog.pk %}" method="post">
+    {% csrf_token %}
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" type="text" name="name" placeholder="Name of Comment Giver" required />
+      </div>
+      <div class="control">
+        <input class="input" type="text" name="content" placeholder="Comment" />
+      </div>
+      <div class="control">
+        <input class="commentbtn" type="submit" value="Add Comment" />
+      </div>
+    </div>
+  </form>
+</div>
 </br>
-
 
 <a href="{% url 'home' %}">Return To Homepage</a>
 

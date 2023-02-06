@@ -13,48 +13,46 @@ import uuid
 import boto3
 import os
 from .forms import SignUpForm, EditProfileForm
-# Create your views here.
 
-# class Home(TemplateView):
-#     template_name = "home.html"
-
-class Home(ListView): # Blog shown page
+class Home(ListView):  # Blog shown page
     model = Blog
     template_name = "home.html"
 
 
-class About(TemplateView):  # not sure what to include but needed
+class About(TemplateView):  
     template_name = "about.html"
+
 
 class BlogDetail(DetailView):  # Blog detail page
     model = Blog
     template_name = "blog_detail.html"
-    
-    def get_context_data(self, **kwargs):
-            context = super(BlogDetail, self).get_context_data(**kwargs)
-            button = get_object_or_404(Blog, id=self.kwargs['pk'])
-            total_likes = button.total_likes
-            liked = False
-            if button.likes.filter(id=self.request.user.id):
-                liked = True
 
-            context["total_likes"]= total_likes
-            context["liked"] = liked
-            return context
+    def get_context_data(self, **kwargs):
+        context = super(BlogDetail, self).get_context_data(**kwargs)
+        button = get_object_or_404(Blog, id=self.kwargs['pk'])
+        total_likes = button.total_likes
+        liked = False
+        if button.likes.filter(id=self.request.user.id):
+            liked = True
+
+        context["total_likes"] = total_likes
+        context["liked"] = liked
+        return context
+
 
 class BlogCreate(CreateView):
     model = Blog
     fields = ['title', 'content', 'spoiler']
     template_name = "blog_create.html"
-    
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.writer = self.request.user
         return super(BlogCreate, self).form_valid(form)
 
     def get_success_url(self):
-                return reverse('home')
-                
+        return reverse('home')
+
 
 #  Update post blog
 class BlogUpdate(UpdateView):
@@ -63,15 +61,15 @@ class BlogUpdate(UpdateView):
     template_name = "blog_update.html"
 
     def get_success_url(self):
-                return reverse('blog_detail', kwargs={'pk':self.object.pk})
+        return reverse('blog_detail', kwargs={'pk': self.object.pk})
 
 #  Delete post blog
 class BlogDelete(DeleteView):
     model = Blog
     template_name = "blog_delete.html"
-   
+
     def get_success_url(self):
-                return reverse('home')
+        return reverse('home')
 
 # Comment create
 class CommentCreate(View):
@@ -82,7 +80,8 @@ class CommentCreate(View):
         blog = Blog.objects.get(pk=pk)
         Comment.objects.create(name=name, content=content, blog=blog)
         return redirect('blog_detail', pk=pk)
-    
+
+
 class Signup(View):
     # show a form to fill out
     def get(self, request):
@@ -90,6 +89,7 @@ class Signup(View):
         context = {"form": form}
         return render(request, "registration/signup.html", context)
     # on form submit, validate the form and login the user.
+
     def post(self, request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -107,33 +107,37 @@ def add_photo(request, blog_id):
     if photo_file:
         s3 = boto3.client('s3')
         # need a unique "key" for S3 / needs image file extension too
-        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
         # just in case something goes wrong
     try:
-            bucket = os.environ['S3_BUCKET']
-            s3.upload_fileobj(photo_file, bucket, key)
-            # build the full url string
-            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
-            Photo.objects.create(url=url, blog_id=blog_id)
+        bucket = os.environ['S3_BUCKET']
+        s3.upload_fileobj(photo_file, bucket, key)
+        # build the full url string
+        url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+        # we can assign to cat_id or cat (if you have a cat object)
+        Photo.objects.create(url=url, blog_id=blog_id)
     except:
-            print('An error occurred uploading file to S3')
-            # return redirect('blog_detail', blog_id=blog_id)  
-            # return reverse('home')
+        print('An error occurred uploading file to S3')
+        # return redirect('blog_detail', blog_id=blog_id)
+        # return reverse('home')
+
 
 class NewPhoto(View):
-    def get(self,request, blog_id):
+    def get(self, request, blog_id):
         # print(blog)
         blog = Blog.objects.get(pk=blog_id)
         print(blog.pk)
-        return render(request, "add_photo.html", {"blog" : blog})
+        return render(request, "add_photo.html", {"blog": blog})
+
     def post(self, request, blog_id):
         photo_file = request.FILES.get('photo-file', None)
         print(photo_file)
         if photo_file:
             s3 = boto3.client('s3')
         # need a unique "key" for S3 / needs image file extension too
-            key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+            key = uuid.uuid4().hex[:6] + \
+                photo_file.name[photo_file.name.rfind('.'):]
         # just in case something goes wrong
         try:
             bucket = os.environ['S3_BUCKET']
@@ -146,20 +150,23 @@ class NewPhoto(View):
             print('An error occurred uploading file to S3')
             return redirect("home")
         return redirect(f"/blog/{blog_id}")
-    
+
+
 class UpdatePhoto(View):
-    def get(self,request, blog_id):
+    def get(self, request, blog_id):
         # print(blog)
         blog = Blog.objects.get(pk=blog_id)
         print(blog.pk)
-        return render(request, "update_photo.html", {"blog" : blog})
+        return render(request, "update_photo.html", {"blog": blog})
+
     def post(self, request, blog_id):
         photo_file = request.FILES.get('photo-file', None)
         print(photo_file)
         if photo_file:
             s3 = boto3.client('s3')
         # need a unique "key" for S3 / needs image file extension too
-            key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+            key = uuid.uuid4().hex[:6] + \
+                photo_file.name[photo_file.name.rfind('.'):]
         # just in case something goes wrong
         try:
             bucket = os.environ['S3_BUCKET']
@@ -172,16 +179,18 @@ class UpdatePhoto(View):
             print('An error occurred uploading file to S3')
             return redirect("home")
         return redirect(f"/blog/{blog_id}/update")
-    
+
+
 def LikeView(request, pk):
-     blog=  get_object_or_404(Blog, id=request.POST.get('blog_id'))
-     liked = False
-     if blog.likes.filter(id=request.user.id).exists():
+    blog = get_object_or_404(Blog, id=request.POST.get('blog_id'))
+    liked = False
+    if blog.likes.filter(id=request.user.id).exists():
         blog.likes.remove(request.user)
-     else:
+    else:
         blog.likes.add(request.user)
-        liked= True
-     return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
+        liked = True
+    return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
+
 
 class EditProfile(View):
     # show a form to fill out
@@ -190,6 +199,7 @@ class EditProfile(View):
         context = {"form": form}
         return render(request, "registration/profile_edit.html", context)
     # on form submit, validate the form and login the user.
+
     def post(self, request):
         form = UserChangeForm(request.POST)
         if form.is_valid():
@@ -199,10 +209,12 @@ class EditProfile(View):
         else:
             context = {"form": form}
             return render(request, "registration/profile_edit.html", context)
-        
+
+
 class PasswordChangeView(PasswordChangeView):
-     form = PasswordChangeForm
-     success_url = reverse_lazy('password_changed')
+    form = PasswordChangeForm
+    success_url = reverse_lazy('password_changed')
+
 
 def password_changed(request):
     return render(request, 'registration/password_changed.html')

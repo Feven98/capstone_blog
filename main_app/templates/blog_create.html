@@ -5,24 +5,18 @@
 
 <div class="create">
   <h1>Create Post</h1>
-
+  <form method="post" class="createform">
     <!-- Security Feature  -->
-<form method="post" class="createform">
-    <!-- Security Feature  -->
-      {% csrf_token %} 
+    {% csrf_token %}
     <!--  Generate inputs  -->
-    {{form.media}} 
-      {{form.as_p}} 
-    <!--  Submit form  -->
-  <!--  create image form  -->
- 
+    {{form.media}}
+    {{form.as_p}}
+    <input type="submit" class="createbtn" value="Post" />
+  </form>
 
-      <input type="submit" class="createbtn" value="Post" />
-    </form>
+</div>
+{% else %}
 
-  </div>
-    {% else %}
-
-  You are not logged in!!!
-  {% endif %}
+You are not logged in!!!
+{% endif %}
 {% endblock %}
