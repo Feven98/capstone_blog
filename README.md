@@ -85,9 +85,6 @@ This application is full crud with Django. Its user authenticated which gives th
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#erds>entity relationship diagrams(ERDs)</a>
 
-# Unsolved Problem
-
-- The image upload using aws it really makes you confused and it was not one big deal but when the user create an image it will duplicate it in his page, but when other user see the post they will only see one picture. I realized it at last time, but I didn't want to crash my app I just left it for now.
 
 # Future Features
 
