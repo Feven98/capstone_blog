@@ -76,7 +76,6 @@ This application is full crud with Django. Its user authenticated which gives th
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#user-stories>User Stories and Flow</a>
 
-
 # Link to wireframes
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#wireframes>Wireframes</a>
@@ -85,7 +84,6 @@ This application is full crud with Django. Its user authenticated which gives th
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#erds>entity relationship diagrams(ERDs)</a>
 
-
 # Future Features
 
 - Create profile model and add profile pic
@@ -93,8 +91,6 @@ This application is full crud with Django. Its user authenticated which gives th
 - Add social media link
 
 - Make catagories
-
-- Follow/Unfollow other blog creators
 
 ## Bugs? Suggestions?
 
