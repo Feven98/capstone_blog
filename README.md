@@ -26,7 +26,7 @@ This application is full crud with Django. Its user authenticated which gives th
 
 <img width="1350" alt="Screenshot 2023-02-06 at 12 50 27 AM" src="https://user-images.githubusercontent.com/117063196/216905515-caf92cba-d365-49a5-a477-6d1dbcdbd5d4.png">
 
-## Detail Page
+## Details Page
 
 <img width="1336" alt="Screenshot 2023-02-06 at 12 32 31 AM" src="https://user-images.githubusercontent.com/117063196/216904503-f3b5c4a5-42ac-4105-b3e0-c2d4a9978759.png">
 
