@@ -64,7 +64,7 @@ This application is full crud with Django. Its user authenticated which gives th
 
     - Install django (pipenv install django)
 
-- Then activate your virtual enviroment (pipenv shell - if this command not work you can use - python3 -m pipenv shell)
+- Then activate your virtual environment (pipenv shell - if this command not work you can use - python3 -m pipenv shell)
 
 - Next, open your vs code (code .)
 
