@@ -70,7 +70,7 @@ This application is full crud with Django. Its user authenticated which gives th
 
 - Then, you need to run the server using (python3 manage.py runserver) 
 
-- Lastly, you need to navigate to (http://localhost:8000) to see the homepage in your browser
+- Lastly, you need to navigate to (http://localhost:8000) to see the homepage in your browser.
 
 # Link to user stories
 
