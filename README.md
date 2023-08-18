@@ -12,7 +12,7 @@ In this application, people can create a post, can edit their post and also can 
 
 This application is full crud with Django. Its user authenticated which gives the user full control of their account. 
 
-# Scrennshots
+# Screenshot 
 
 ## Login page
 
