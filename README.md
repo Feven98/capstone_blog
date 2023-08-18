@@ -80,7 +80,7 @@ This application is full crud with Django. Its user authenticated which gives th
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#wireframes>Wireframes</a>
 
-# Link to entity relationship diagrams
+# Link to entity relationships diagrams
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#erds>entity relationship diagrams(ERDs)</a>
 
