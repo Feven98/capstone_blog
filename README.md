@@ -86,7 +86,9 @@ This application is a full crud with Django. It is user authenticated which give
 
 # Future Features
 
-- Create profile model and add profile pic
+- Create profile model and
+
+- Add profile pic
 
 - Add social media link
 
