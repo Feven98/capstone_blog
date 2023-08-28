@@ -6,7 +6,7 @@ Guzo app is a blog app that enables you to post about the things you want to sha
 
 # Problem the app addresses
 
-This app aims to let people share their journey on life with other peoples. It will let people post about the place they have been or other experiances they have done and let other peoples learn from their experiance. The post will have image and description so other peoples understand and now about that more clearly.
+This app aims to let people share their journey on life with other peoples. It will let people post about the place they have been or other experiances they have done and let other peoples learn from their experiance. The post will have an image and description so other peoples understand and now about that more clearly.
 
 It will also let people comment on other peoples post, so they can share their ideas. 
 
