@@ -2,7 +2,7 @@
 
 # Project Summary 
 
-Guzo is a blog app that enables you to post about the things you want to share with other people and also let you see and comment on other peoples post.
+Guzo app is a blog app that enables you to post about the things you want to share with other peoples and also let you see and comment on other peoples post.
 
 # Problem the app addresses
 
