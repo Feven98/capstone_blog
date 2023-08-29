@@ -10,7 +10,7 @@ Guzo-Blog is an application that let’s people to post about what they experien
 
 In this application, people can create a post, can edit their post and also can delete their post if they want to. It also have an access to upload images using aws. Only the user can make all the above. The other users can see the post, make a comment and also can like or unlike the post if they want to. It will only shown if you have an account and logged in. 
 
-This application is a full crud with Django. It is user authenticated which gives the user full control of their account. 
+This application is a full crude with Django. It is user authenticated which gives the user full control of their account. 
 
 # Screenshot 
 
