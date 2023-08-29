@@ -92,7 +92,7 @@ This application is a full crud with Django. It is user authenticated which give
 
 - Add social media link
 
-- Make catagories
+- Make categories 
 
 ## Bugs? Suggestions?
 
