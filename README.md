@@ -1,6 +1,6 @@
 # Guzo_Blog Application
 
-# Link to the App
+# Link to the Application 
 
 Live Page : [https://lit-gorge-39380.herokuapp.com/]
 
