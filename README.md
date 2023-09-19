@@ -72,7 +72,7 @@ This application is a full crude with Django. It is user authenticated which giv
 
 - Lastly, you need to navigate to (http://localhost:8000) to see the homepage in your browser.
 
-# Link to user stories
+# Link to users stories
 
 <a href=https://github.com/Feven98/guzo_blog/blob/main/planning.md#user-stories>User Stories and Flow</a>
 
