@@ -4,7 +4,7 @@
 
 Live Page : [https://lit-gorge-39380.herokuapp.com/]
 
-# Project DescriptioN
+# Project Description
 
 Guzo-Blog is an application that let’s users to post about what they experienced and what they want to share with other people. The app name "Guzo-Blog" means "Travel-Blog". I want the app to let people share their journey in life that they think will help other peoples and also to get information by sharing their thoughts. So, that why I name it Guzo or travel app.
 
